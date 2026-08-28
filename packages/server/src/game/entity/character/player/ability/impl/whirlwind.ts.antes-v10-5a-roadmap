@@ -1,0 +1,23 @@
+import Ability from '../ability';
+
+import type Player from '../../player';
+
+/** Warrior starter: a wider AoE attack, inspired by classic ARPG spin skills. */
+export default class Whirlwind extends Ability {
+    public constructor(level: number, quickSlot = -1) {
+        super('whirlwind', level, quickSlot);
+    }
+
+    public override activate(player: Player): boolean {
+        if (!player.hasTarget() || !player.target) {
+            player.notify('misc:NEED_COMBAT');
+            return false;
+        }
+
+        if (!super.activate(player)) return false;
+
+        player.aoe = 2;
+        player.combat.attack(player.target);
+        return true;
+    }
+}

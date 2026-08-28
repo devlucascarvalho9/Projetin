@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
+  <title>Árvore Passiva — Guerreiro</title>
+  <link rel="stylesheet" href="./viewer-kaetram-v4.css" />
+</head>
+<body>
+  <div id="app">
+    <canvas id="tree" aria-label="Árvore passiva do Guerreiro"></canvas>
+    <div id="toolbar">
+      <div class="brand">
+        <strong>ÁRVORE PASSIVA — GUERREIRO</strong>
+        <span>estrutura visual preservada • talentos próprios do Guerreiro</span>
+      </div>
+      <label class="search-wrap">
+        <span>Buscar</span>
+        <input id="search" type="search" autocomplete="off" placeholder="talento ou atributo..." />
+      </label>
+      <label class="search-wrap asc-wrap">
+        <span>Especialização</span>
+        <select id="ascendancy" aria-label="Especialização do Guerreiro">
+          <option value="Warrior1" selected>Colosso</option>
+          <option value="Warrior2">Senhor da Guerra</option>
+          <option value="Warrior3">Forjador Rúnico</option>
+        </select>
+      </label>
+      <div id="stats">Sincronizando…</div>
+      <button id="resetTalents" type="button" class="reset">Redefinir</button>
+    </div>
+    <div id="controls" aria-label="Controles da árvore">
+      <button id="fit" type="button" title="Mostrar árvore inteira">◎</button>
+      <button id="zoomOut" type="button" title="Diminuir zoom">−</button>
+      <button id="zoomIn" type="button" title="Aumentar zoom">+</button>
+    </div>
+    <div id="tooltip" role="status"></div>
+    <div id="loading"><div class="spinner"></div><b>Carregando árvore do Guerreiro…</b></div>
+  </div>
+  <script type="module" src="./viewer-kaetram-v4.js"></script>
+</body>
+</html>

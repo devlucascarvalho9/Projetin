@@ -1,0 +1,301 @@
+{
+  "waterRegions": [
+    {
+      "id": "river_north_1",
+      "kind": "river",
+      "shape": "rect",
+      "x": 582,
+      "y": 0,
+      "width": 92,
+      "height": 210,
+      "dirX": 0.55,
+      "dirY": 0.05,
+      "alpha": 0.18
+    },
+    {
+      "id": "river_north_2",
+      "kind": "river",
+      "shape": "rect",
+      "x": 570,
+      "y": 170,
+      "width": 118,
+      "height": 260,
+      "dirX": 0.7,
+      "dirY": 0.04,
+      "alpha": 0.18
+    },
+    {
+      "id": "river_east_1",
+      "kind": "river",
+      "shape": "rect",
+      "x": 1275,
+      "y": 165,
+      "width": 125,
+      "height": 350,
+      "dirX": 0.35,
+      "dirY": 0.12,
+      "alpha": 0.18
+    },
+    {
+      "id": "river_east_2",
+      "kind": "river",
+      "shape": "rect",
+      "x": 1265,
+      "y": 515,
+      "width": 130,
+      "height": 340,
+      "dirX": 0.2,
+      "dirY": 0.1,
+      "alpha": 0.17
+    },
+    {
+      "id": "river_south_center",
+      "kind": "river",
+      "shape": "rect",
+      "x": 450,
+      "y": 760,
+      "width": 180,
+      "height": 220,
+      "dirX": 0.48,
+      "dirY": 0.06,
+      "alpha": 0.18
+    },
+    {
+      "id": "river_south_west",
+      "kind": "river",
+      "shape": "rect",
+      "x": 0,
+      "y": 750,
+      "width": 280,
+      "height": 300,
+      "dirX": 0.62,
+      "dirY": 0.02,
+      "alpha": 0.17
+    },
+    {
+      "id": "pond_center",
+      "kind": "pond",
+      "shape": "ellipse",
+      "x": 595,
+      "y": 744,
+      "width": 130,
+      "height": 105,
+      "dirX": 0.15,
+      "dirY": 0.03,
+      "alpha": 0.14
+    },
+    {
+      "id": "pond_center_2",
+      "kind": "pond",
+      "shape": "ellipse",
+      "x": 528,
+      "y": 744,
+      "width": 110,
+      "height": 90,
+      "dirX": 0.15,
+      "dirY": 0.03,
+      "alpha": 0.14
+    },
+    {
+      "id": "waterfall",
+      "kind": "waterfall",
+      "shape": "rect",
+      "x": 0,
+      "y": 0,
+      "width": 115,
+      "height": 165,
+      "dirX": 0.0,
+      "dirY": 0.95,
+      "alpha": 0.24
+    },
+    {
+      "id": "fountain",
+      "kind": "fountain",
+      "shape": "ellipse",
+      "x": 653,
+      "y": 476,
+      "width": 136,
+      "height": 136,
+      "dirX": 0.0,
+      "dirY": 0.35,
+      "alpha": 0.22
+    }
+  ],
+  "treeSwayPoints": [
+    {
+      "x": 84,
+      "y": 1020,
+      "radius": 32
+    },
+    {
+      "x": 140,
+      "y": 952,
+      "radius": 30
+    },
+    {
+      "x": 208,
+      "y": 835,
+      "radius": 28
+    },
+    {
+      "x": 274,
+      "y": 925,
+      "radius": 32
+    },
+    {
+      "x": 362,
+      "y": 820,
+      "radius": 30
+    },
+    {
+      "x": 574,
+      "y": 844,
+      "radius": 30
+    },
+    {
+      "x": 777,
+      "y": 885,
+      "radius": 32
+    },
+    {
+      "x": 931,
+      "y": 1034,
+      "radius": 34
+    },
+    {
+      "x": 1160,
+      "y": 1015,
+      "radius": 32
+    },
+    {
+      "x": 1287,
+      "y": 936,
+      "radius": 30
+    },
+    {
+      "x": 1343,
+      "y": 833,
+      "radius": 30
+    },
+    {
+      "x": 1328,
+      "y": 704,
+      "radius": 30
+    },
+    {
+      "x": 1282,
+      "y": 560,
+      "radius": 30
+    },
+    {
+      "x": 1208,
+      "y": 500,
+      "radius": 28
+    },
+    {
+      "x": 1098,
+      "y": 208,
+      "radius": 30
+    },
+    {
+      "x": 834,
+      "y": 112,
+      "radius": 30
+    },
+    {
+      "x": 689,
+      "y": 147,
+      "radius": 28
+    },
+    {
+      "x": 500,
+      "y": 188,
+      "radius": 30
+    },
+    {
+      "x": 382,
+      "y": 140,
+      "radius": 32
+    },
+    {
+      "x": 246,
+      "y": 162,
+      "radius": 30
+    },
+    {
+      "x": 313,
+      "y": 322,
+      "radius": 30
+    },
+    {
+      "x": 158,
+      "y": 446,
+      "radius": 28
+    },
+    {
+      "x": 256,
+      "y": 642,
+      "radius": 30
+    },
+    {
+      "x": 410,
+      "y": 718,
+      "radius": 30
+    },
+    {
+      "x": 816,
+      "y": 760,
+      "radius": 30
+    },
+    {
+      "x": 984,
+      "y": 570,
+      "radius": 30
+    },
+    {
+      "x": 1057,
+      "y": 387,
+      "radius": 28
+    },
+    {
+      "x": 1363,
+      "y": 357,
+      "radius": 28
+    }
+  ],
+  "smokeEmitters": [
+    {
+      "id": "forge_smoke",
+      "x": 157,
+      "y": 598
+    },
+    {
+      "id": "forge_smoke_2",
+      "x": 170,
+      "y": 590
+    }
+  ],
+  "lightPulses": [
+    {
+      "id": "forge_fire",
+      "x": 215,
+      "y": 640,
+      "radius": 32,
+      "color": "#ff9d42",
+      "alpha": 0.18
+    },
+    {
+      "id": "fountain_glow",
+      "x": 721,
+      "y": 544,
+      "radius": 42,
+      "color": "#66d7ff",
+      "alpha": 0.08
+    }
+  ],
+  "notes": [
+    "Animações V2 são overlays procedurais em cima da arte aprovada.",
+    "Para árvores, o movimento é sugerido por sway overlays leves. Para sway real por sprite, será necessário separar as copas em camadas na V3.",
+    "Água, cachoeira e fonte já têm implementação procedural pronta."
+  ]
+}

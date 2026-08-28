@@ -1,0 +1,6 @@
+HOTFIX V11.3 - BUILD WARRIOR SKILLBAR (V2)
+
+Pode deixar esta pasta dentro de Kaetram-Open-develop.
+Execute CORRIGIR-BUILD-V11-3.cmd.
+O script encontra automaticamente a raiz do jogo subindo pelas pastas.
+Depois, na raiz do Kaetram, rode: yarn build

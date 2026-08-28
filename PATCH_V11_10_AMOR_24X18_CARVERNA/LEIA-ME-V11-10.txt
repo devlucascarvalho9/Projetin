@@ -1,0 +1,21 @@
+PATCH V11.10 — AMOR 24x18 + /CARVERNA
+
+ALTERACOES
+- Mapa do Amor reduzido DE VERDADE de 36x27 para 24x18 tiles.
+- A arte visual acompanha a nova area 24x18, entao fica menor na tela.
+- Corrigidos os arquivos comprimidos .br/.gz do bundle do cliente; antes o navegador podia receber a versao visual antiga.
+- Mantidas animacoes visuais do mapa Amor.
+- Adicionada a Caverna Kaetram enviada pelo usuario: 80x64 tiles, mapa Tiled 16x16.
+- Caverna usa a layer blocking do mapa enviado para colisao.
+- Spawn da caverna: 269,1088 (equivale ao spawn local 37,32 do mapa).
+- Comandos: /carverna, /caverna e /cave.
+- /amor e /cidade levam para o Amor 24x18.
+
+COMO APLICAR
+1. Feche o jogo e os terminais.
+2. Copie a pasta packages deste patch para a raiz do Kaetram e aceite substituir/mesclar.
+3. Rode yarn start.
+4. Abra uma aba nova e use Ctrl+F5.
+5. Teste /amor e depois /carverna.
+
+NAO PRECISA RODAR YARN BUILD para este patch: o dist do cliente ja esta atualizado, incluindo .br/.gz.

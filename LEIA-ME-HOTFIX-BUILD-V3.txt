@@ -1,0 +1,8 @@
+Kaetram V11.3 - Hotfix Build V3
+
+Corrige os dois erros de propriedades privadas nao utilizadas:
+- warrior-skillbar.ts: ticker
+- kaykit-character.ts: raf
+
+Pode deixar esta pasta dentro de Kaetram-Open-develop e executar CORRIGIR-BUILD-V11-3-V3.cmd.
+Depois execute yarn build na raiz do projeto.

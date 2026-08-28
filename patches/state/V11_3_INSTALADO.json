@@ -1,0 +1,17 @@
+{
+  "version": "11.3",
+  "installedAt": "2026-08-27T19:39:30.996Z",
+  "features": [
+    "kaykit-2.2x",
+    "city-walkable-floor-fix",
+    "city-safe-spawn",
+    "starter-rat-batterfly-loot",
+    "iteminfo-command"
+  ],
+  "collisionTile": 14,
+  "walkableTile": 3530,
+  "citySpawn": [
+    200,
+    1086
+  ]
+}

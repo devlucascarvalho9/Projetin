@@ -1,0 +1,16 @@
+{
+  "version": "11.2B",
+  "installedAt": "2026-08-27T18:35:47.514Z",
+  "worldMode": "targeted-city-mask",
+  "collisionTile": 14,
+  "features": [
+    "kaykit-1.7",
+    "attack-face-target",
+    "illustrated-city-empty-zone",
+    "dev-panel-expanded",
+    "giveitem-inventory",
+    "dev-real-max-hp",
+    "low-level-loot",
+    "supportlist-fix"
+  ]
+}

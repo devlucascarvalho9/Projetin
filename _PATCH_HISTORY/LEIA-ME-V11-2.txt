@@ -1,0 +1,24 @@
+Kaetram V11.2 - Gameplay/DEV Fix
+
+BASE NECESSARIA: V11.1B instalado e validado.
+
+Instalacao:
+1. Pare yarn start.
+2. Extraia este ZIP na raiz Kaetram-Open-develop.
+3. Execute APLICAR-V11-2-GAMEPLAY-DEV.cmd.
+4. Execute TESTAR-V11-2.cmd.
+5. Se tudo estiver [OK], rode yarn build e yarn start.
+6. Ctrl+F5 no navegador.
+
+Rollback: ROLLBACK-V11-2.cmd
+
+Principais mudancas:
+- KayKit 1.7x e direcoes horizontais corrigidas.
+- Personagem vira para o alvo antes do ataque.
+- /cidade usa a cidade ilustrada bonita em regiao vazia com 782 colisoes reais.
+- /cidade2 preserva a cidade estruturada V11.1B.
+- Painel F10 ampliado e arrastavel.
+- /giveitem adiciona ao inventario.
+- HP/Mana DEV passam a ser maximos reais durante a sessao.
+- Drops de equipamento e essencias aumentados em mobs de nivel baixo para testes.
+- /supportlist corrigido.

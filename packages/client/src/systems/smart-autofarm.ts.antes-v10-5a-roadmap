@@ -1,0 +1,282 @@
+import Utils from '../utils/util';
+import { pathLength } from './smart-path-utils';
+
+import { Packets, Opcodes } from '@kaetram/common/network';
+
+import type Game from '../game';
+import type Entity from '../entity/entity';
+import type Character from '../entity/character/character';
+
+interface Candidate {
+    entity: Entity;
+    distance: number;
+    pathCost: number;
+    score: number;
+}
+
+/**
+ * Idle-focused auto farm controller.
+ *
+ * Goals:
+ * - prefer reachable loot and combat targets instead of Euclidean-only distance;
+ * - recover when the player is stuck;
+ * - patrol locally when the area is empty so farming does not stall forever;
+ * - avoid packet spam by keeping a single decision cadence.
+ *
+ * The path-cost/scoring approach is inspired by grid-game usage patterns from
+ * PathFinding.js (MIT). Kaetram's own A* remains the authoritative pathfinder.
+ */
+export default class SmartAutoFarm {
+    public lootRadius = 11;
+    public combatRadius = 15;
+    public patrolRadius = 7;
+    public preferLoot = true;
+
+    private lastDecision = 0;
+    private lastProgressCheck = 0;
+    private lastX = -1;
+    private lastY = -1;
+    private stuckTicks = 0;
+    private patrolUntil = 0;
+    private lastCleave = 0;
+    private lastWhirlwind = 0;
+    private lastWarcry = 0;
+
+    public constructor(private game: Game) {}
+
+    public update(active: boolean): void {
+        if (!active || !this.game.started || !this.game.player || this.game.player.dead) {
+            this.resetProgress();
+            return;
+        }
+
+        const now = Date.now();
+        this.trackProgress(now);
+
+        // A slightly faster cadence than the old implementation, but still far
+        // below frame rate so it cannot spam pathfinding/network packets.
+        if (now - this.lastDecision < 325) return;
+        this.lastDecision = now;
+
+        if (this.stuckTicks >= 4) {
+            this.recoverFromStuck();
+            this.stuckTicks = 0;
+            return;
+        }
+
+        const entities = Object.values(this.game.entities.getAll());
+        const loot = this.findBestLoot(entities);
+        const mob = this.findBestMob(entities);
+
+        if (this.preferLoot && loot) {
+            this.moveToLoot(loot.entity);
+            return;
+        }
+
+        if (mob) {
+            this.engageMob(mob.entity as Character);
+            return;
+        }
+
+        if (loot) {
+            this.moveToLoot(loot.entity);
+            return;
+        }
+
+        this.patrol(now);
+    }
+
+    private findBestLoot(entities: Entity[]): Candidate | null {
+        let best: Candidate | null = null;
+
+        for (const entity of entities) {
+            if (!entity || !entity.isItem()) continue;
+
+            const distance = Utils.distance(
+                this.game.player.gridX,
+                this.game.player.gridY,
+                entity.gridX,
+                entity.gridY
+            );
+
+            if (distance > this.lootRadius) continue;
+
+            const pathCost = this.pathCost(entity.gridX, entity.gridY);
+            if (!Number.isFinite(pathCost)) continue;
+
+            const name = (entity.name || '').toLocaleLowerCase('pt-BR');
+            const essenceBonus = name.includes('essência') || name.includes('essence') ? 9 : 0;
+            const forgeBonus = name.includes('teste') || name.includes('forja') ? 4 : 0;
+            const score = 100 + essenceBonus + forgeBonus - pathCost * 2.2 - distance * 0.5;
+
+            if (!best || score > best.score) best = { entity, distance, pathCost, score };
+        }
+
+        return best;
+    }
+
+    private findBestMob(entities: Entity[]): Candidate | null {
+        let best: Candidate | null = null;
+
+        for (const entity of entities) {
+            if (!entity || !entity.isMob() || entity.dead) continue;
+
+            const distance = Utils.distance(
+                this.game.player.gridX,
+                this.game.player.gridY,
+                entity.gridX,
+                entity.gridY
+            );
+
+            if (distance > this.combatRadius) continue;
+
+            const pathCost = this.pathCost(entity.gridX, entity.gridY, true);
+            if (!Number.isFinite(pathCost)) continue;
+
+            // Slight preference for targets around the player's level, while still
+            // allowing the idle loop to clear weaker mobs efficiently.
+            const levelDelta = Math.abs((entity.level || 1) - (this.game.player.level || 1));
+            const levelPenalty = Math.min(8, levelDelta) * 0.7;
+            const score = 70 - pathCost * 1.8 - distance * 0.35 - levelPenalty;
+
+            if (!best || score > best.score) best = { entity, distance, pathCost, score };
+        }
+
+        return best;
+    }
+
+    private pathCost(x: number, y: number, allowAdjacent = false): number {
+        const p = this.game.player;
+
+        const direct = this.game.findPath(p, x, y);
+        if (direct.length > 1) return pathLength(direct);
+
+        if (!allowAdjacent) return Infinity;
+
+        const candidates = [
+            [x + 1, y],
+            [x - 1, y],
+            [x, y + 1],
+            [x, y - 1]
+        ];
+
+        let best = Infinity;
+        for (const [cx, cy] of candidates) {
+            if (cx < 0 || cy < 0 || cx >= this.game.map.width || cy >= this.game.map.height) continue;
+            if (this.game.map.isColliding(cx, cy)) continue;
+            const path = this.game.findPath(p, cx, cy);
+            if (path.length > 1) best = Math.min(best, pathLength(path));
+        }
+
+        return best;
+    }
+
+    private moveToLoot(entity: Entity): void {
+        this.game.player.go(entity.gridX, entity.gridY, true);
+    }
+
+    private engageMob(mob: Character): void {
+        const player = this.game.player;
+
+        player.follow(mob, true);
+        mob.addAttacker(player);
+        player.lastTarget = mob.instance;
+
+        if (player.canAttackTarget()) {
+            const now = Date.now();
+            const hpRatio = player.maxHitPoints > 0 ? player.hitPoints / player.maxHitPoints : 1;
+            const nearbyMobs = Object.values(this.game.entities.getAll()).filter((entity) =>
+                entity?.isMob() &&
+                !entity.dead &&
+                Utils.distance(player.gridX, player.gridY, entity.gridX, entity.gridY) <= 2.5
+            ).length;
+
+            // Idle rotation: sustain first, large AoE for packs, cleave for single targets.
+            if (hpRatio < 0.5 && now - this.lastWarcry >= 10_000) {
+                this.game.socket.send(Packets.Ability, { opcode: Opcodes.Ability.Use, key: 'warcry' });
+                this.lastWarcry = now;
+            } else if (nearbyMobs >= 3 && now - this.lastWhirlwind >= 6_000) {
+                this.game.socket.send(Packets.Ability, { opcode: Opcodes.Ability.Use, key: 'whirlwind' });
+                this.lastWhirlwind = now;
+            } else if (now - this.lastCleave >= 2_500) {
+                this.game.socket.send(Packets.Ability, { opcode: Opcodes.Ability.Use, key: 'cleave' });
+                this.lastCleave = now;
+            }
+
+            this.game.socket.send(Packets.Target, [
+                Opcodes.Target.Attack,
+                mob.instance,
+                mob.gridX,
+                mob.gridY
+            ]);
+        }
+    }
+
+    private trackProgress(now: number): void {
+        if (now - this.lastProgressCheck < 700) return;
+        this.lastProgressCheck = now;
+
+        const { gridX, gridY } = this.game.player;
+        if (gridX === this.lastX && gridY === this.lastY && this.game.player.hasPath()) this.stuckTicks++;
+        else this.stuckTicks = 0;
+
+        this.lastX = gridX;
+        this.lastY = gridY;
+    }
+
+    private recoverFromStuck(): void {
+        const p = this.game.player;
+        const candidates: [number, number][] = [];
+
+        for (let radius = 1; radius <= 4; radius++) {
+            for (let dy = -radius; dy <= radius; dy++) {
+                for (let dx = -radius; dx <= radius; dx++) {
+                    if (Math.abs(dx) !== radius && Math.abs(dy) !== radius) continue;
+                    const x = p.gridX + dx;
+                    const y = p.gridY + dy;
+                    if (x < 0 || y < 0 || x >= this.game.map.width || y >= this.game.map.height) continue;
+                    if (this.game.map.isColliding(x, y)) continue;
+                    if (this.game.findPath(p, x, y).length > 1) candidates.push([x, y]);
+                }
+            }
+            if (candidates.length) break;
+        }
+
+        if (!candidates.length) return;
+        const [x, y] = candidates[Math.floor(Math.random() * candidates.length)];
+        p.go(x, y, true);
+    }
+
+    private patrol(now: number): void {
+        if (now < this.patrolUntil || this.game.player.hasPath()) return;
+
+        const p = this.game.player;
+        const candidates: [number, number][] = [];
+
+        for (let attempt = 0; attempt < 18; attempt++) {
+            const dx = Math.floor(Math.random() * (this.patrolRadius * 2 + 1)) - this.patrolRadius;
+            const dy = Math.floor(Math.random() * (this.patrolRadius * 2 + 1)) - this.patrolRadius;
+            const x = p.gridX + dx;
+            const y = p.gridY + dy;
+            if (x < 0 || y < 0 || x >= this.game.map.width || y >= this.game.map.height) continue;
+            if (this.game.map.isColliding(x, y)) continue;
+            const path = this.game.findPath(p, x, y);
+            if (path.length > 2) candidates.push([x, y]);
+        }
+
+        if (!candidates.length) {
+            this.patrolUntil = now + 1200;
+            return;
+        }
+
+        const [x, y] = candidates[Math.floor(Math.random() * candidates.length)];
+        p.go(x, y, true);
+        this.patrolUntil = now + 1500;
+    }
+
+    private resetProgress(): void {
+        this.lastX = -1;
+        this.lastY = -1;
+        this.stuckTicks = 0;
+    }
+}

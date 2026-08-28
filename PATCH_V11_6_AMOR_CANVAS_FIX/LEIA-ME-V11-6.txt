@@ -1,0 +1,10 @@
+V11.6 - AMOR CANVAS FIX
+
+1. Substitua a pasta packages na raiz do jogo.
+2. Rode yarn start. Este patch ja altera o bundle compilado.
+3. Feche as abas antigas do jogo e abra de novo; use Ctrl+F5 uma vez.
+
+Mudancas:
+- Forca Canvas renderer para evitar tela preta com o tileset grande do Mapa Amor.
+- Mantem o Mapa Amor nativo no slot V11.1.
+- Corrige o erro TypeScript MongoDB em creator.ts que bloqueava yarn build.

@@ -1,0 +1,14 @@
+KAETRAM V11.2B - HOTFIX DO INSTALADOR V11.2
+
+Use SOBRE a V11.1B instalada.
+O V11.2 anterior podia recusar world.json validos por comparar hash exato.
+O V11.2B NAO substitui map.json e NAO substitui world.json inteiro.
+Ele preserva o mapa atual e altera somente a area vazia X=180..225 / Y=1056..1089 para aplicar as 782 colisoes da cidade ilustrada.
+
+1. Pare yarn start.
+2. Extraia estes arquivos na raiz do Kaetram-Open-develop.
+3. Execute APLICAR-V11-2B-GAMEPLAY-DEV.cmd.
+4. Execute TESTAR-V11-2B.cmd.
+5. Somente se tudo [OK]: yarn build e yarn start.
+
+Se necessario: ROLLBACK-V11-2B.cmd restaura inclusive o world.json exato anterior.

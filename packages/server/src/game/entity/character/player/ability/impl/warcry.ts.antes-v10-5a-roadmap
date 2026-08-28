@@ -1,0 +1,18 @@
+import Ability from '../ability';
+
+import type Player from '../../player';
+
+/** Warrior starter: short sustain tool for idle combat loops. */
+export default class WarCry extends Ability {
+    public constructor(level: number, quickSlot = -1) {
+        super('warcry', level, quickSlot);
+    }
+
+    public override activate(player: Player): boolean {
+        if (!super.activate(player)) return false;
+
+        const amount = Math.max(1, Math.floor(player.hitPoints.getMaxHitPoints() * 0.1));
+        player.heal(amount, 'hitpoints');
+        return true;
+    }
+}

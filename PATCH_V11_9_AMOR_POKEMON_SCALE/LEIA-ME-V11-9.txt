@@ -1,0 +1,32 @@
+PATCH V11.9 — MAPA AMOR COMPACTO / ESCALA POKEMON
+
+Motivo:
+O mapa anterior tinha 91x68 tiles e, com o zoom normal do Kaetram, parecia gigantesco.
+PokeIdle nao usa um tilemap caminhavel equivalente; esta versao adota uma escala compacta de RPG Pokemon.
+
+Novo tamanho fisico do /amor:
+- Antes: 91 x 68 tiles
+- Agora: 36 x 27 tiles
+- Tile Kaetram: 16 px
+- Area fisica: 576 x 432 px antes do zoom da camera
+
+Visual:
+- A arte original 1456x1088 continua sendo usada em alta resolucao.
+- Ela e reduzida suavemente sobre a area de 36x27, evitando o aspecto ampliado/pixelado.
+- Mantem animacoes de agua, cachoeira, flores e petalas da V11.8.
+
+Gameplay:
+- Interior sem obstaculos.
+- Borda de 1 tile bloqueia o jogador para ele nao sair da arte.
+- Novo spawn: 66,1069.
+- /amor e /cidade continuam levando ao mesmo mapa.
+
+Aplicacao:
+1. Feche jogo e servidor.
+2. Copie a pasta packages deste patch para a raiz do Kaetram.
+3. Aceite substituir/mesclar os arquivos.
+4. Rode yarn start.
+5. Abra uma aba nova e use Ctrl+F5.
+6. Teste /amor.
+
+Nao precisa rodar yarn build: o client dist desta versao esta incluido.

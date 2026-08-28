@@ -1,0 +1,15 @@
+PATCH V11.11 — CACHE BUST DEFINITIVO + AMOR FISICO 24x18 + CAVERNA
+
+- Bundle novo: /_astro/hoisted.v1111.js (nao reutiliza o JS antigo em cache).
+- Client sirv em modo DEV (-D) para evitar cache nos testes.
+- Amor fisicamente reduzido: 384x288 px = 24x18 tiles.
+- /carverna, /caverna e /cave: caverna Tiled 80x64 com overlay visual e colisoes do world.
+
+APLICAR:
+1. Feche TODOS os terminais e abas do jogo.
+2. Copie a pasta packages deste patch sobre a raiz do Kaetram e substitua tudo.
+3. Rode yarn start.
+4. Primeiro teste em uma janela anonima/privada.
+5. Teste /amor e /carverna.
+
+Nao rode yarn build para este teste.

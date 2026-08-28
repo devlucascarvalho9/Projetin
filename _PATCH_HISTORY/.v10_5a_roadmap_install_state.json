@@ -1,0 +1,148 @@
+{
+  "version": "V10.5a-roadmap-selfcontained",
+  "installedAt": "2026-08-27T12:38:25.701Z",
+  "root": "C:\\Users\\Lucas\\Desktop\\Kaetram-Open-develop",
+  "files": {
+    "packages/client/public/img/sprites/items/arpg_berserkeraxe.png": {
+      "existedBefore": false
+    },
+    "packages/client/public/img/sprites/items/arpg_bloodplate.png": {
+      "existedBefore": false
+    },
+    "packages/client/public/img/sprites/items/arpg_bloodring.png": {
+      "existedBefore": false
+    },
+    "packages/client/public/img/sprites/items/arpg_colossusplate.png": {
+      "existedBefore": false
+    },
+    "packages/client/public/img/sprites/items/arpg_conquerroring.png": {
+      "existedBefore": false
+    },
+    "packages/client/public/img/sprites/items/arpg_doomaxe.png": {
+      "existedBefore": false
+    },
+    "packages/client/public/img/sprites/items/arpg_dreadblade.png": {
+      "existedBefore": false
+    },
+    "packages/client/public/img/sprites/items/arpg_executioner.png": {
+      "existedBefore": false
+    },
+    "packages/client/public/img/sprites/items/arpg_guardring.png": {
+      "existedBefore": false
+    },
+    "packages/client/public/img/sprites/items/arpg_hidevest.png": {
+      "existedBefore": false
+    },
+    "packages/client/public/img/sprites/items/arpg_ironcuirass.png": {
+      "existedBefore": false
+    },
+    "packages/client/public/img/sprites/items/arpg_juggernautshield.png": {
+      "existedBefore": false
+    },
+    "packages/client/public/img/sprites/items/arpg_longblade.png": {
+      "existedBefore": false
+    },
+    "packages/client/public/img/sprites/items/arpg_oakshield.png": {
+      "existedBefore": false
+    },
+    "packages/client/public/img/sprites/items/arpg_rustblade.png": {
+      "existedBefore": false
+    },
+    "packages/client/public/img/sprites/items/arpg_soldierboots.png": {
+      "existedBefore": false
+    },
+    "packages/client/public/img/sprites/items/arpg_titanboots.png": {
+      "existedBefore": false
+    },
+    "packages/client/public/img/sprites/items/arpg_titanplate.png": {
+      "existedBefore": false
+    },
+    "packages/client/public/img/sprites/items/arpg_towershield.png": {
+      "existedBefore": false
+    },
+    "packages/client/public/img/sprites/items/arpg_trailboots.png": {
+      "existedBefore": false
+    },
+    "packages/client/public/img/sprites/items/arpg_waraxe.png": {
+      "existedBefore": false
+    },
+    "packages/client/public/img/sprites/items/arpg_warplate.png": {
+      "existedBefore": false
+    },
+    "packages/client/public/img/sprites/items/arpg_warstep.png": {
+      "existedBefore": false
+    },
+    "packages/client/public/img/sprites/items/arpg_worldbreaker.png": {
+      "existedBefore": false
+    },
+    "packages/client/public/img/sprites/items/unique_ashcleaver.png": {
+      "existedBefore": false
+    },
+    "packages/client/public/img/sprites/items/unique_stonewall.png": {
+      "existedBefore": false
+    },
+    "packages/client/public/img/sprites/items/unique_warheart.png": {
+      "existedBefore": false
+    },
+    "packages/client/src/game.ts": {
+      "existedBefore": true
+    },
+    "packages/client/src/menu/actions.ts": {
+      "existedBefore": true
+    },
+    "packages/client/src/network/connection.ts": {
+      "existedBefore": true
+    },
+    "packages/client/src/systems/smart-autofarm.ts": {
+      "existedBefore": true
+    },
+    "packages/client/src/ui/warrior-skillbar.ts": {
+      "existedBefore": true
+    },
+    "packages/common/database/mongodb/creator.ts": {
+      "existedBefore": true
+    },
+    "packages/common/types/item.d.ts": {
+      "existedBefore": true
+    },
+    "packages/server/data/items.json": {
+      "existedBefore": true
+    },
+    "packages/server/src/controllers/commands.ts": {
+      "existedBefore": true
+    },
+    "packages/server/src/controllers/enchanter.ts": {
+      "existedBefore": true
+    },
+    "packages/server/src/game/arpg/items.ts": {
+      "existedBefore": false
+    },
+    "packages/server/src/game/arpg/mobs.ts": {
+      "existedBefore": false
+    },
+    "packages/server/src/game/entity/character/mob/mob.ts": {
+      "existedBefore": true
+    },
+    "packages/server/src/game/entity/character/player/ability/ability.ts": {
+      "existedBefore": true
+    },
+    "packages/server/src/game/entity/character/player/ability/impl/cleave.ts": {
+      "existedBefore": true
+    },
+    "packages/server/src/game/entity/character/player/ability/impl/warcry.ts": {
+      "existedBefore": true
+    },
+    "packages/server/src/game/entity/character/player/ability/impl/whirlwind.ts": {
+      "existedBefore": true
+    },
+    "packages/server/src/game/entity/character/player/handler.ts": {
+      "existedBefore": true
+    },
+    "packages/server/src/game/entity/character/player/player.ts": {
+      "existedBefore": true
+    },
+    "packages/server/src/game/entity/objects/item.ts": {
+      "existedBefore": true
+    }
+  }
+}

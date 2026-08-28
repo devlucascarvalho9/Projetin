@@ -1,0 +1,73 @@
+{
+  "id": "cidade_inicial",
+  "name": "Cidade Inicial",
+  "image": "cidade_inicial.png",
+  "width": 1448,
+  "height": 1086,
+  "tileSize": 32,
+  "playerSpawn": {
+    "x": 724,
+    "y": 650
+  },
+  "triggers": [
+    {
+      "id": "saida_sul",
+      "x": 560,
+      "y": 835,
+      "width": 330,
+      "height": 235,
+      "target": "floresta_inicial"
+    }
+  ],
+  "collisions": [
+    {
+      "id": "col_templo",
+      "x": 270,
+      "y": 82,
+      "width": 225,
+      "height": 215
+    },
+    {
+      "id": "col_predio_norte",
+      "x": 1035,
+      "y": 60,
+      "width": 215,
+      "height": 145
+    },
+    {
+      "id": "col_predio_leste",
+      "x": 1090,
+      "y": 290,
+      "width": 225,
+      "height": 185
+    },
+    {
+      "id": "col_ferreiro",
+      "x": 95,
+      "y": 585,
+      "width": 225,
+      "height": 210
+    },
+    {
+      "id": "col_guilda",
+      "x": 888,
+      "y": 637,
+      "width": 225,
+      "height": 195
+    },
+    {
+      "id": "col_casa_sul",
+      "x": 720,
+      "y": 845,
+      "width": 190,
+      "height": 170
+    },
+    {
+      "id": "col_predio_sudeste",
+      "x": 1080,
+      "y": 690,
+      "width": 150,
+      "height": 145
+    }
+  ]
+}

@@ -1,0 +1,316 @@
+{
+  "version": "V11.0-CUMULATIVO",
+  "installedAt": "2026-08-27T16:52:49.014Z",
+  "root": "C:\\Users\\Lucas\\Desktop\\Kaetram-Open-develop",
+  "files": {
+    "LICENSE-EASYSTAR.txt": {
+      "existedBefore": false
+    },
+    "LICENSE-KAYKIT-ADVENTURERS.txt": {
+      "existedBefore": false
+    },
+    "LICENSE-KAYKIT-DUNGEON.txt": {
+      "existedBefore": false
+    },
+    "LICENSE-KAYKIT-SKELETONS.txt": {
+      "existedBefore": false
+    },
+    "LICENSE-KENNEY-EXPLOSION.txt": {
+      "existedBefore": false
+    },
+    "LICENSE-ROTJS.txt": {
+      "existedBefore": false
+    },
+    "ROADMAP-STATUS-V11-0.md": {
+      "existedBefore": false
+    },
+    "THIRD-PARTY-NOTICES.md": {
+      "existedBefore": true
+    },
+    "packages/client/public/img/effects/arpg/kenney_burst_red.png": {
+      "existedBefore": false
+    },
+    "packages/client/public/img/effects/arpg/kenney_burst_yellow.png": {
+      "existedBefore": false
+    },
+    "packages/client/public/img/effects/arpg/kenney_ring_orange.png": {
+      "existedBefore": false
+    },
+    "packages/client/public/img/sprites/items/arpg_berserkeraxe.png": {
+      "existedBefore": true
+    },
+    "packages/client/public/img/sprites/items/arpg_bloodplate.png": {
+      "existedBefore": true
+    },
+    "packages/client/public/img/sprites/items/arpg_bloodring.png": {
+      "existedBefore": true
+    },
+    "packages/client/public/img/sprites/items/arpg_colossusplate.png": {
+      "existedBefore": true
+    },
+    "packages/client/public/img/sprites/items/arpg_conquerroring.png": {
+      "existedBefore": true
+    },
+    "packages/client/public/img/sprites/items/arpg_doomaxe.png": {
+      "existedBefore": true
+    },
+    "packages/client/public/img/sprites/items/arpg_dreadblade.png": {
+      "existedBefore": true
+    },
+    "packages/client/public/img/sprites/items/arpg_executioner.png": {
+      "existedBefore": true
+    },
+    "packages/client/public/img/sprites/items/arpg_guardring.png": {
+      "existedBefore": true
+    },
+    "packages/client/public/img/sprites/items/arpg_hidevest.png": {
+      "existedBefore": true
+    },
+    "packages/client/public/img/sprites/items/arpg_ironcuirass.png": {
+      "existedBefore": true
+    },
+    "packages/client/public/img/sprites/items/arpg_juggernautshield.png": {
+      "existedBefore": true
+    },
+    "packages/client/public/img/sprites/items/arpg_longblade.png": {
+      "existedBefore": true
+    },
+    "packages/client/public/img/sprites/items/arpg_oakshield.png": {
+      "existedBefore": true
+    },
+    "packages/client/public/img/sprites/items/arpg_rustblade.png": {
+      "existedBefore": true
+    },
+    "packages/client/public/img/sprites/items/arpg_soldierboots.png": {
+      "existedBefore": true
+    },
+    "packages/client/public/img/sprites/items/arpg_titanboots.png": {
+      "existedBefore": true
+    },
+    "packages/client/public/img/sprites/items/arpg_titanplate.png": {
+      "existedBefore": true
+    },
+    "packages/client/public/img/sprites/items/arpg_towershield.png": {
+      "existedBefore": true
+    },
+    "packages/client/public/img/sprites/items/arpg_trailboots.png": {
+      "existedBefore": true
+    },
+    "packages/client/public/img/sprites/items/arpg_waraxe.png": {
+      "existedBefore": true
+    },
+    "packages/client/public/img/sprites/items/arpg_warplate.png": {
+      "existedBefore": true
+    },
+    "packages/client/public/img/sprites/items/arpg_warstep.png": {
+      "existedBefore": true
+    },
+    "packages/client/public/img/sprites/items/arpg_worldbreaker.png": {
+      "existedBefore": true
+    },
+    "packages/client/public/img/sprites/items/unique_ashcleaver.png": {
+      "existedBefore": true
+    },
+    "packages/client/public/img/sprites/items/unique_stonewall.png": {
+      "existedBefore": true
+    },
+    "packages/client/public/img/sprites/items/unique_warheart.png": {
+      "existedBefore": true
+    },
+    "packages/client/public/img/sprites/mobs/cryptlord.png": {
+      "existedBefore": false
+    },
+    "packages/client/public/img/sprites/mobs/darkskeleton.png": {
+      "existedBefore": true
+    },
+    "packages/client/public/img/sprites/mobs/skeleton.png": {
+      "existedBefore": true
+    },
+    "packages/client/public/img/sprites/mobs/skeleton2.png": {
+      "existedBefore": true
+    },
+    "packages/client/public/maps/crypt_v110/crypt.png": {
+      "existedBefore": false
+    },
+    "packages/client/public/maps/crypt_v110/layout.json": {
+      "existedBefore": false
+    },
+    "packages/client/public/models/kaykit/anim/attack_east.png": {
+      "existedBefore": false
+    },
+    "packages/client/public/models/kaykit/anim/attack_north.png": {
+      "existedBefore": false
+    },
+    "packages/client/public/models/kaykit/anim/attack_south.png": {
+      "existedBefore": false
+    },
+    "packages/client/public/models/kaykit/anim/attack_west.png": {
+      "existedBefore": false
+    },
+    "packages/client/public/models/kaykit/anim/cleave_east.png": {
+      "existedBefore": false
+    },
+    "packages/client/public/models/kaykit/anim/cleave_north.png": {
+      "existedBefore": false
+    },
+    "packages/client/public/models/kaykit/anim/cleave_south.png": {
+      "existedBefore": false
+    },
+    "packages/client/public/models/kaykit/anim/cleave_west.png": {
+      "existedBefore": false
+    },
+    "packages/client/public/models/kaykit/anim/death_east.png": {
+      "existedBefore": false
+    },
+    "packages/client/public/models/kaykit/anim/death_north.png": {
+      "existedBefore": false
+    },
+    "packages/client/public/models/kaykit/anim/death_south.png": {
+      "existedBefore": false
+    },
+    "packages/client/public/models/kaykit/anim/death_west.png": {
+      "existedBefore": false
+    },
+    "packages/client/public/models/kaykit/anim/hit_east.png": {
+      "existedBefore": false
+    },
+    "packages/client/public/models/kaykit/anim/hit_north.png": {
+      "existedBefore": false
+    },
+    "packages/client/public/models/kaykit/anim/hit_south.png": {
+      "existedBefore": false
+    },
+    "packages/client/public/models/kaykit/anim/hit_west.png": {
+      "existedBefore": false
+    },
+    "packages/client/public/models/kaykit/anim/idle_east.png": {
+      "existedBefore": false
+    },
+    "packages/client/public/models/kaykit/anim/idle_north.png": {
+      "existedBefore": false
+    },
+    "packages/client/public/models/kaykit/anim/idle_south.png": {
+      "existedBefore": false
+    },
+    "packages/client/public/models/kaykit/anim/idle_west.png": {
+      "existedBefore": false
+    },
+    "packages/client/public/models/kaykit/anim/run_east.png": {
+      "existedBefore": false
+    },
+    "packages/client/public/models/kaykit/anim/run_north.png": {
+      "existedBefore": false
+    },
+    "packages/client/public/models/kaykit/anim/run_south.png": {
+      "existedBefore": false
+    },
+    "packages/client/public/models/kaykit/anim/run_west.png": {
+      "existedBefore": false
+    },
+    "packages/client/public/models/kaykit/anim/spin_east.png": {
+      "existedBefore": false
+    },
+    "packages/client/public/models/kaykit/anim/spin_north.png": {
+      "existedBefore": false
+    },
+    "packages/client/public/models/kaykit/anim/spin_south.png": {
+      "existedBefore": false
+    },
+    "packages/client/public/models/kaykit/anim/spin_west.png": {
+      "existedBefore": false
+    },
+    "packages/client/public/models/kaykit/anim/warcry_east.png": {
+      "existedBefore": false
+    },
+    "packages/client/public/models/kaykit/anim/warcry_north.png": {
+      "existedBefore": false
+    },
+    "packages/client/public/models/kaykit/anim/warcry_south.png": {
+      "existedBefore": false
+    },
+    "packages/client/public/models/kaykit/anim/warcry_west.png": {
+      "existedBefore": false
+    },
+    "packages/client/public/vendor/easystar-0.4.4.min.js": {
+      "existedBefore": false
+    },
+    "packages/client/src/game.ts": {
+      "existedBefore": true
+    },
+    "packages/client/src/menu/actions.ts": {
+      "existedBefore": true
+    },
+    "packages/client/src/network/connection.ts": {
+      "existedBefore": true
+    },
+    "packages/client/src/systems/smart-autofarm.ts": {
+      "existedBefore": true
+    },
+    "packages/client/src/ui/combat-vfx.ts": {
+      "existedBefore": true
+    },
+    "packages/client/src/ui/dungeon-ambience.ts": {
+      "existedBefore": false
+    },
+    "packages/client/src/ui/kaykit-character.ts": {
+      "existedBefore": true
+    },
+    "packages/client/src/ui/warrior-skillbar.ts": {
+      "existedBefore": true
+    },
+    "packages/common/database/mongodb/creator.ts": {
+      "existedBefore": true
+    },
+    "packages/common/types/item.d.ts": {
+      "existedBefore": true
+    },
+    "packages/server/data/items.json": {
+      "existedBefore": true
+    },
+    "packages/server/src/controllers/commands.ts": {
+      "existedBefore": true
+    },
+    "packages/server/src/controllers/enchanter.ts": {
+      "existedBefore": true
+    },
+    "packages/server/src/game/arpg/items.ts": {
+      "existedBefore": true
+    },
+    "packages/server/src/game/arpg/mobs.ts": {
+      "existedBefore": true
+    },
+    "packages/server/src/game/entity/character/mob/mob.ts": {
+      "existedBefore": true
+    },
+    "packages/server/src/game/entity/character/player/ability/ability.ts": {
+      "existedBefore": true
+    },
+    "packages/server/src/game/entity/character/player/ability/impl/cleave.ts": {
+      "existedBefore": true
+    },
+    "packages/server/src/game/entity/character/player/ability/impl/warcry.ts": {
+      "existedBefore": true
+    },
+    "packages/server/src/game/entity/character/player/ability/impl/whirlwind.ts": {
+      "existedBefore": true
+    },
+    "packages/server/src/game/entity/character/player/handler.ts": {
+      "existedBefore": true
+    },
+    "packages/server/src/game/entity/character/player/player.ts": {
+      "existedBefore": true
+    },
+    "packages/server/src/game/entity/objects/item.ts": {
+      "existedBefore": true
+    },
+    "packages/client/data/sprites.json": {
+      "existedBefore": true
+    },
+    "packages/server/data/mobs.json": {
+      "existedBefore": true
+    },
+    "packages/server/data/map/world.json": {
+      "existedBefore": true
+    }
+  }
+}

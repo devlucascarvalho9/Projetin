@@ -1,0 +1,20 @@
+KAETRAM V11.1 — CIDADE ESTRUTURADA + TELEPORTES + GM
+
+BASE ESPERADA: V11.0 CUMULATIVO FINAL.
+
+1. Pare yarn start.
+2. Extraia TODO este ZIP na raiz Kaetram-Open-develop.
+3. Execute APLICAR-V11-1-CIDADE-DEV.cmd.
+4. Execute TESTAR-V11-1.cmd. Todos os itens devem aparecer [OK].
+5. Rode yarn build e depois yarn start.
+6. Ctrl+F5 no navegador.
+
+A NOVA CIDADE NAO E UMA IMAGEM COLADA SOBRE O MAPA ANTIGO.
+O instalador aumenta o world de 1152x1008 para 1152x1152 e cria a cidade em uma regiao nova e vazia (X 48..127, Y 1056..1105).
+Existem 48 linhas de isolamento entre o mundo antigo e a cidade. Nenhum tile antigo existe por baixo da cidade.
+
+TELEPORTES: /cidade, /dungeon, /cidadeantiga, /teleportes
+PAINEL GM: F10
+LISTA COMPLETA: COMANDOS-E-CONTEUDO-V11-1.md
+
+Se precisar desfazer SOMENTE este update, execute ROLLBACK-V11-1.cmd.

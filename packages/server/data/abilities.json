@@ -1,0 +1,233 @@
+{
+    "intimidate": {
+        "type": "active",
+        "levels": {
+            "1": {
+                "cooldown": 60000,
+                "duration": 15000,
+                "mana": 15
+            },
+            "2": {
+                "cooldown": 60000,
+                "duration": 20000,
+                "mana": 17
+            },
+            "3": {
+                "cooldown": 60000,
+                "duration": 25000,
+                "mana": 19
+            },
+            "4": {
+                "cooldown": 60000,
+                "duration": 30000,
+                "mana": 21
+            }
+        }
+    },
+    "run": {
+        "type": "active",
+        "levels": {
+            "1": {
+                "cooldown": 60000,
+                "duration": 15000,
+                "mana": 15
+            },
+            "2": {
+                "cooldown": 60000,
+                "duration": 17000,
+                "mana": 15
+            },
+            "3": {
+                "cooldown": 60000,
+                "duration": 19000,
+                "mana": 15
+            },
+            "4": {
+                "cooldown": 60000,
+                "duration": 22000,
+                "mana": 15
+            }
+        }
+    },
+    "awareness": {
+        "type": "passive"
+    },
+    "dualistsmark": {
+        "type": "active",
+        "levels": {
+            "1": {
+                "cooldown": 60000,
+                "duration": 15000,
+                "mana": 15
+            },
+            "2": {
+                "cooldown": 60000,
+                "duration": 15000,
+                "mana": 15
+            },
+            "3": {
+                "cooldown": 60000,
+                "duration": 15000,
+                "mana": 15
+            },
+            "4": {
+                "cooldown": 60000,
+                "duration": 15000,
+                "mana": 15
+            }
+        }
+    },
+    "hotshot": {
+        "type": "active",
+        "levels": {
+            "1": {
+                "cooldown": 60000,
+                "duration": 15000,
+                "mana": 15
+            },
+            "2": {
+                "cooldown": 60000,
+                "duration": 15000,
+                "mana": 15
+            },
+            "3": {
+                "cooldown": 60000,
+                "duration": 15000,
+                "mana": 15
+            },
+            "4": {
+                "cooldown": 60000,
+                "duration": 15000,
+                "mana": 15
+            }
+        }
+    },
+    "thickskin": {
+        "type": "active",
+        "levels": {
+            "1": {
+                "cooldown": 60000,
+                "duration": 15000,
+                "mana": 15
+            },
+            "2": {
+                "cooldown": 60000,
+                "duration": 15000,
+                "mana": 15
+            },
+            "3": {
+                "cooldown": 60000,
+                "duration": 15000,
+                "mana": 15
+            },
+            "4": {
+                "cooldown": 60000,
+                "duration": 15000,
+                "mana": 15
+            }
+        }
+    },
+    "precognition": {
+        "type": "passive"
+    },
+    "secretcalling": {
+        "type": "active",
+        "levels": {
+            "1": {
+                "cooldown": 60000,
+                "duration": 15000,
+                "mana": 15
+            },
+            "2": {
+                "cooldown": 60000,
+                "duration": 15000,
+                "mana": 15
+            },
+            "3": {
+                "cooldown": 60000,
+                "duration": 15000,
+                "mana": 15
+            },
+            "4": {
+                "cooldown": 60000,
+                "duration": 15000,
+                "mana": 15
+            }
+        }
+    },
+    "cleave": {
+        "type": "active",
+        "levels": {
+            "1": {
+                "cooldown": 2500,
+                "duration": 250,
+                "mana": 6
+            },
+            "2": {
+                "cooldown": 2500,
+                "duration": 250,
+                "mana": 6
+            },
+            "3": {
+                "cooldown": 2500,
+                "duration": 250,
+                "mana": 6
+            },
+            "4": {
+                "cooldown": 2500,
+                "duration": 250,
+                "mana": 6
+            }
+        }
+    },
+    "whirlwind": {
+        "type": "active",
+        "levels": {
+            "1": {
+                "cooldown": 6000,
+                "duration": 450,
+                "mana": 12
+            },
+            "2": {
+                "cooldown": 6000,
+                "duration": 450,
+                "mana": 12
+            },
+            "3": {
+                "cooldown": 6000,
+                "duration": 450,
+                "mana": 12
+            },
+            "4": {
+                "cooldown": 6000,
+                "duration": 450,
+                "mana": 12
+            }
+        }
+    },
+    "warcry": {
+        "type": "active",
+        "levels": {
+            "1": {
+                "cooldown": 10000,
+                "duration": 300,
+                "mana": 8
+            },
+            "2": {
+                "cooldown": 10000,
+                "duration": 300,
+                "mana": 8
+            },
+            "3": {
+                "cooldown": 10000,
+                "duration": 300,
+                "mana": 8
+            },
+            "4": {
+                "cooldown": 10000,
+                "duration": 300,
+                "mana": 8
+            }
+        }
+    }
+}

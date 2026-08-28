@@ -1,0 +1,37 @@
+KAETRAM - RECONSTRUCAO NATIVA AUDITADA DOS MAPAS
+
+Esta entrega foi refeita a partir do JOGO ATUALIZADO.rar limpo.
+Nao depende dos overlays de Amor/Caverna dos patches anteriores.
+
+MAPA AMOR
+- comando: /amor ou /cidade
+- tamanho REAL: 16x12 tiles = 256x192 pixels de mapa
+- origem no mundo: 384,1056
+- spawn: 392,1062
+- arte: reducao pixel-exata (Lanczos) da imagem Carine original para 256x192
+- colisao interna: nenhuma
+
+CAVERNA
+- comandos: /carverna, /caverna ou /cave
+- tamanho: 80x64 tiles = 1280x1024 pixels
+- origem no mundo: 480,1056
+- spawn: 517,1088
+- blocking preservado do Tiled: 2999 tiles
+- arte reconstruida pixel a pixel do arquivo Tiled enviado
+
+POR QUE ESTA VERSAO E DIFERENTE
+- Ambos sao tiles NATIVOS do world.json.
+- O cliente conhece o atlas nativo diretamente.
+- O servidor inicia pelo source atualizado, nao pelo dist antigo.
+- O client usa a porta 9010, uma origem nova, para nao reutilizar o service worker/cache antigo da porta 9000.
+- O PWA/cache de producao foi desativado para esta versao de desenvolvimento.
+
+COMO USAR
+1. Extraia esta entrega na raiz do Kaetram-Open-develop e aceite substituir os arquivos.
+2. NAO rode os patches V11.4-V11.11 novamente.
+3. Dê dois cliques em INICIAR-MAPAS-AUDITADOS.cmd.
+4. Ele valida os mapas antes de iniciar.
+5. O navegador abrira em http://localhost:9010/
+6. Teste /amor e /carverna.
+
+Nao precisa rodar yarn build para esta entrega.

@@ -1,0 +1,8 @@
+Base temporária da árvore passiva importada para migração no Kaetram.
+
+- O código do visualizador original cvenzin/poe2-skilltree é MIT; veja LICENSE.txt.
+- O data.json e os assets de Path of Exile 2 presentes neste diretório vieram do ZIP
+  fornecido pelo usuário e continuam pertencendo aos respectivos titulares.
+- Esta etapa existe para servir como base de migração. A intenção do projeto é substituir
+  progressivamente dados, nomes, nós, regras e arte por conteúdo próprio do jogo.
+- Nenhum arquivo de fonte tipográfica do repositório original foi incluído.

@@ -1,0 +1,10 @@
+Kaetram V11.3 - HOTFIX DO INSTALADOR
+
+Este hotfix corrige somente a deteccao da raiz do jogo.
+Funciona com os arquivos soltos diretamente em Kaetram-Open-develop OU dentro de PATCH_V11_3.
+
+Uso:
+1. Extraia estes arquivos diretamente na raiz Kaetram-Open-develop e substitua os antigos.
+2. Rode APLICAR-V11-3.cmd.
+3. Rode TESTAR-V11-3.cmd.
+4. Se tudo estiver [OK], rode yarn build e yarn start.

@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
+  <title>Árvore Passiva — Base Importada</title>
+  <link rel="stylesheet" href="./viewer-kaetram-v3.css" />
+</head>
+<body>
+  <div id="app">
+    <canvas id="tree" aria-label="Árvore passiva completa"></canvas>
+    <div id="toolbar">
+      <div class="brand">
+        <strong>ÁRVORE PASSIVA — IMPORTADA 0.5.1</strong>
+        <span>árvore completa • 5.151 nodes • base de conversão</span>
+      </div>
+      <label class="search-wrap">
+        <span>Buscar</span>
+        <input id="search" type="search" autocomplete="off" placeholder="nome ou atributo..." />
+      </label>
+      <label class="search-wrap asc-wrap">
+        <span>Guerreiro</span>
+        <select id="ascendancy" aria-label="Ascendência do Guerreiro">
+          <option value="">Sem ascendência</option>
+          <option value="Warrior1" selected>Titan</option>
+          <option value="Warrior2">Warbringer</option>
+          <option value="Warrior3">Smith of Kitava</option>
+        </select>
+      </label>
+      <div id="stats">Carregando…</div>
+    </div>
+    <div id="controls" aria-label="Controles da árvore">
+      <button id="fit" type="button" title="Mostrar árvore inteira">◎</button>
+      <button id="zoomOut" type="button" title="Diminuir zoom">−</button>
+      <button id="zoomIn" type="button" title="Aumentar zoom">+</button>
+    </div>
+    <div id="tooltip" role="status"></div>
+    <div id="loading"><div class="spinner"></div><b>Carregando árvore completa…</b></div>
+  </div>
+  <script type="module" src="./viewer-kaetram-v3.js"></script>
+</body>
+</html>

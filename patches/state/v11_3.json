@@ -1,0 +1,25 @@
+{
+  "version": "11.3",
+  "backupRel": "backups/V11_3/2026-08-27T19-39-30-912Z",
+  "affected": [
+    "packages/client/src/ui/kaykit-character.ts",
+    "packages/server/src/controllers/commands.ts",
+    "packages/server/src/game/entity/character/mob/mob.ts",
+    "packages/server/data/map/world.json",
+    "patches/state/V11_3_INSTALADO.json"
+  ],
+  "existed": {
+    "packages/client/src/ui/kaykit-character.ts": true,
+    "packages/server/src/controllers/commands.ts": true,
+    "packages/server/src/game/entity/character/mob/mob.ts": true,
+    "packages/server/data/map/world.json": true,
+    "patches/state/V11_3_INSTALADO.json": false
+  },
+  "installed": {
+    "packages/client/src/ui/kaykit-character.ts": "097e25036a05792f1b33b3ae866f4724c550db919d821926a4ecfa1518e228f3",
+    "packages/server/src/controllers/commands.ts": "f9151b993700ba3be254e5c262d3a720e000ff2b584b1d78ddf56251af60b1ed",
+    "packages/server/src/game/entity/character/mob/mob.ts": "8ab1bcc23b59cfbd41c2f0307e6dbd06194abb3307ecf4e5e2e8e76393047002"
+  },
+  "collisionTile": 14,
+  "walkableTile": 3530
+}

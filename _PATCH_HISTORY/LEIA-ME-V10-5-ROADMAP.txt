@@ -1,0 +1,36 @@
+KAETRAM V10.5 — ROADMAP COMPLETO 1–7
+====================================
+
+IMPORTANTE
+- Este e um PATCH pequeno para ser aplicado em cima do seu V10.4 atual.
+- NAO e o projeto inteiro.
+- NAO substitui cidade, KayKit, HUD, world.json ou node_modules.
+- O instalador cria backup dos arquivos tocados.
+
+COMO APLICAR
+1) Pare o yarn start.
+2) Extraia este ZIP na raiz Kaetram-Open-develop.
+3) Execute: APLICAR-V10-5-ROADMAP.cmd
+4) Execute: yarn build
+5) Se o build terminar sem erro: yarn start
+6) No navegador: Ctrl+F5
+
+VALIDACAO SEM BUILD
+- Rode TESTAR-V10-5-ROADMAP.cmd para conferir os arquivos/itens do patch.
+
+ROLLBACK
+- Se quiser voltar somente este patch, execute ROLLBACK-V10-5-ROADMAP.cmd.
+- Isso nao mexe nas correcoes V10.3/V10.4 da cidade/KayKit.
+
+TESTES NO JOGO
+/arpgloot 10 magic
+/arpgloot 40 rare
+/arpgloot 60 unique
+/support cleave area
+/support cleave efficiency
+/supportlist
+/maptier
+/lootfilter rare
+/autosell magic
+/autosell off
+/lootfilter normal

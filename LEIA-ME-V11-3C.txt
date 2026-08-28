@@ -1,0 +1,11 @@
+V11.3C - HOTFIX DE INSTALADOR
+
+Este hotfix foi feito especificamente para o formato atual:
+os arquivos APLICAR/TESTAR/ROLLBACK/V11_3_*.cjs ficam diretamente na raiz Kaetram-Open-develop.
+
+Ele NAO tenta descobrir a raiz. O .cmd passa a propria pasta onde ele esta para o Node.
+
+1. Extraia os 7 arquivos diretamente em Kaetram-Open-develop e substitua os antigos.
+2. Execute APLICAR-V11-3.cmd.
+3. Execute TESTAR-V11-3.cmd.
+4. Se tudo ficar [OK], rode yarn build e yarn start.

@@ -1,0 +1,48 @@
+{
+  "version": "11.2B",
+  "backupRel": ".v11_2_backup/2026-08-27T18-35-47-424Z",
+  "affected": [
+    "packages/client/src/ui/kaykit-character.ts",
+    "packages/client/src/network/connection.ts",
+    "packages/client/src/ui/dev-panel.ts",
+    "packages/client/src/game.ts",
+    "packages/client/src/ui/city-ambience.ts",
+    "packages/server/src/controllers/commands.ts",
+    "packages/server/src/game/entity/character/player/player.ts",
+    "packages/server/src/game/entity/character/player/skills.ts",
+    "packages/server/src/game/entity/character/mob/mob.ts",
+    "packages/server/data/map/cidade-ilustrada-v112-collisions.json",
+    "packages/server/data/map/world.json",
+    "V11_2_INSTALADO.json"
+  ],
+  "existed": {
+    "packages/client/src/ui/kaykit-character.ts": true,
+    "packages/client/src/network/connection.ts": true,
+    "packages/client/src/ui/dev-panel.ts": true,
+    "packages/client/src/game.ts": true,
+    "packages/client/src/ui/city-ambience.ts": true,
+    "packages/server/src/controllers/commands.ts": true,
+    "packages/server/src/game/entity/character/player/player.ts": true,
+    "packages/server/src/game/entity/character/player/skills.ts": true,
+    "packages/server/src/game/entity/character/mob/mob.ts": true,
+    "packages/server/data/map/cidade-ilustrada-v112-collisions.json": false,
+    "packages/server/data/map/world.json": true,
+    "V11_2_INSTALADO.json": false
+  },
+  "installed": {
+    "packages/client/src/ui/kaykit-character.ts": "b5c2a322d0897525b8deeb332f3b223d29ddede4e38740d1d70e5d7232236f21",
+    "packages/client/src/network/connection.ts": "e3d91e9ef0b048f200b1ecb5fca32c23749ac74a7d7cde5d4a2c4e795b8687f4",
+    "packages/client/src/ui/dev-panel.ts": "cc39dd73eb173afd829022c269f30ac3cf31402961f4f69e6c22016de4c405c3",
+    "packages/client/src/game.ts": "bfdaf5e4f08fbe763241208280c9b82ca6dd78d087e7989679664caaacf64728",
+    "packages/client/src/ui/city-ambience.ts": "2637fa2e78e73e0810fcf0aad63ca5c9febe3fde2e930a7aa8aef25d5705cc7f",
+    "packages/server/src/controllers/commands.ts": "f8ba301b1f9853c971b1fb5677b82d45358810d57c48b7d4050216e1d35df8f5",
+    "packages/server/src/game/entity/character/player/player.ts": "b4d417b0c3fc694b7a3b3444c4413a47f85097ed57c93f45c27dedfc38447c68",
+    "packages/server/src/game/entity/character/player/skills.ts": "f0d990aad3c9655cae4d0f460092867d02678761d4761fae0bfcf9901616bfd4",
+    "packages/server/src/game/entity/character/mob/mob.ts": "3448dda0a845c065cf0c4b478390922ecafaab4d8740816ced680b9ed0690c11",
+    "packages/server/data/map/cidade-ilustrada-v112-collisions.json": "713d1d90fd9fa6797e14340c68786f308c7a103c74f85d732911f537092af634"
+  },
+  "dynamicWorld": {
+    "coords": 782,
+    "collisionTile": 14
+  }
+}

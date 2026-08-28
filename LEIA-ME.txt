@@ -1,0 +1,29 @@
+MAPAS AUDITADOS - RECOVERY FINAL
+
+CAUSA ENCONTRADA:
+Os patches antigos alteraram o packages/client/dist/index.html para bundles como hoisted.v1111.js.
+O pacote auditado anterior substituia somente alguns arquivos e NAO removia esse index/bundles antigos.
+Assim, servidor/mapas novos podiam coexistir com um client velho ou quebrado.
+
+ESTE RECOVERY:
+- faz backup dos arquivos atuais;
+- APAGA packages/client/dist inteiro;
+- instala uma copia completa e coerente do client dist;
+- restaura a cadeia original index.html -> hoisted.9b16c21d.js -> hoisted.f2a29915.js;
+- o hoisted.f2a29915.js ja contem o map.json auditado;
+- remove os overlays antigos do runtime;
+- instala Amor nativo 16x12 e Caverna nativa 80x64;
+- preserva 2999 tiles blocking da caverna Tiled;
+- usa client em http://127.0.0.1:9020 para nao reutilizar service worker da porta 9010;
+- desativa registro PWA durante esta fase de testes.
+
+COMO USAR:
+1. Extraia esta pasta DENTRO de Kaetram-Open-develop (ou execute com a pasta como filha da raiz).
+2. Feche terminais antigos do jogo.
+3. Execute INSTALAR-E-INICIAR-AUDITADO.cmd.
+4. Espere a mensagem VALIDACAO COMPLETA.
+5. O navegador deve abrir em http://127.0.0.1:9020/
+6. Teste /amor e /carverna.
+
+Nao rode yarn build para este teste.
+Nao aplique V11.4-V11.11 por cima deste recovery.

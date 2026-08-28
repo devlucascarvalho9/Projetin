@@ -1,0 +1,12 @@
+Hotfix de build V11.3 - middleware Astro/i18n
+
+Corrige somente a incompatibilidade de tipos em:
+packages/client/middleware/index.ts
+
+Mudanca:
+sequence(i18nMiddleware, language)
+para
+sequence(i18nMiddleware as typeof language, language)
+
+Nao altera runtime, mapa, personagem, itens ou saves.
+Cria backup .antes-hotfix-middleware-v11-3.

@@ -1,0 +1,271 @@
+import Formulas from '../info/formulas';
+
+import Utils from '@kaetram/common/util/utils';
+import { EnchantPacket } from '@kaetram/common/network/impl';
+import { Opcodes } from '@kaetram/common/network';
+
+import Item from '../game/entity/objects/item';
+import type Player from '../game/entity/character/player/player';
+import type { Enchantment, Enchantments } from '@kaetram/common/types/item';
+
+interface TierRange {
+    min: number;
+    max: number;
+}
+
+interface AffixDefinition {
+    id: number;
+    stat: string;
+    name: string;
+    tiers: Record<number, TierRange>;
+}
+
+interface PendingEssencePreview {
+    id: string;
+    itemIndex: number;
+    essenceIndex: number;
+    itemKey: string;
+    essenceKey: string;
+    affixes: Enchantment[];
+}
+
+const AFFIXES: AffixDefinition[] = [
+    { id: 1001, stat: 'strength', name: 'Força', tiers: { 1:{min:20,max:25}, 2:{min:15,max:19}, 3:{min:11,max:14}, 4:{min:7,max:10}, 5:{min:3,max:6} } },
+    { id: 1002, stat: 'accuracy', name: 'Precisão', tiers: { 1:{min:30,max:40}, 2:{min:23,max:29}, 3:{min:16,max:22}, 4:{min:9,max:15}, 5:{min:3,max:8} } },
+    { id: 1003, stat: 'slash', name: 'Corte', tiers: { 1:{min:18,max:25}, 2:{min:13,max:17}, 3:{min:9,max:12}, 4:{min:5,max:8}, 5:{min:2,max:4} } },
+    { id: 1004, stat: 'crush', name: 'Impacto', tiers: { 1:{min:18,max:25}, 2:{min:13,max:17}, 3:{min:9,max:12}, 4:{min:5,max:8}, 5:{min:2,max:4} } },
+    { id: 1005, stat: 'stab', name: 'Perfuração', tiers: { 1:{min:18,max:25}, 2:{min:13,max:17}, 3:{min:9,max:12}, 4:{min:5,max:8}, 5:{min:2,max:4} } },
+    { id: 1006, stat: 'defense', name: 'Defesa', tiers: { 1:{min:20,max:28}, 2:{min:15,max:19}, 3:{min:10,max:14}, 4:{min:6,max:9}, 5:{min:2,max:5} } },
+    { id: 1007, stat: 'attackSpeedPct', name: 'Velocidade de Ataque', tiers: { 1:{min:10,max:14}, 2:{min:8,max:9}, 3:{min:6,max:7}, 4:{min:4,max:5}, 5:{min:2,max:3} } },
+    { id: 1008, stat: 'movementSpeedPct', name: 'Velocidade de Movimento', tiers: { 1:{min:9,max:12}, 2:{min:7,max:8}, 3:{min:5,max:6}, 4:{min:3,max:4}, 5:{min:1,max:2} } },
+    { id: 1009, stat: 'magic', name: 'Poder Rúnico', tiers: { 1:{min:18,max:25}, 2:{min:13,max:17}, 3:{min:9,max:12}, 4:{min:5,max:8}, 5:{min:2,max:4} } }
+];
+
+const ESSENCE_GUARANTEES: Record<string, string> = {
+    essencebruta: 'strength',
+    essencesangrenta: 'slash',
+    essenceafiada: 'accuracy',
+    essenceguardia: 'defense',
+    essencerunica: 'magic'
+};
+
+const ESSENCE_NAMES: Record<string, string> = {
+    essencebruta: 'Essência Bruta',
+    essencesangrenta: 'Essência Sangrenta',
+    essenceafiada: 'Essência Afiada',
+    essenceguardia: 'Essência Guardiã',
+    essencerunica: 'Essência Rúnica'
+};
+
+export default class Enchanter {
+    private essencePreviews = new Map<string, PendingEssencePreview>();
+
+    public select(player: Player, index = -1) {
+        if (isNaN(index) || index === -1) return player.notify('enchant:CANNOT_ENCHANT');
+
+        let slot = player.inventory.get(index);
+        if (!slot?.key) return player.notify('enchant:CANNOT_ENCHANT');
+
+        if (slot.key.startsWith('shardt') || slot.key.startsWith('essence'))
+            return player.send(new EnchantPacket(Opcodes.Enchant.Select, { index, isShard: true }));
+
+        if (slot.count > 1 || !slot.equippable || slot.maxStackSize > 1)
+            return player.notify('enchant:CANNOT_ENCHANT');
+
+        if (player.inventory.getItem(slot).getAvailableEnchantments().length === 0)
+            return player.notify('enchant:CANNOT_ENCHANT');
+
+        player.send(new EnchantPacket(Opcodes.Enchant.Select, { index }));
+    }
+
+    /** Native Kaetram shard enchanting is kept intact. */
+    public enchant(player: Player, index = -1, shardIndex = -1): void {
+        if (shardIndex === -1 || index === -1 || isNaN(index) || isNaN(shardIndex))
+            return player.notify('enchant:NO_ITEM_SELECTED');
+
+        let itemSlot = player.inventory.get(index),
+            shardSlot = player.inventory.get(shardIndex);
+
+        if (!itemSlot?.key || !shardSlot?.key) return player.notify('enchant:NO_ITEM_SELECTED');
+
+        // Essences use the new preview/apply flow and are not processed as native shards.
+        if (shardSlot.key.startsWith('essence')) {
+            this.previewEssence(player, index, shardIndex);
+            return;
+        }
+
+        if (!shardSlot.key.startsWith('shardt')) return player.notify('enchant:NO_SHARD');
+
+        let item = player.inventory.getItem(itemSlot).copy(),
+            enchantments = item.getAvailableEnchantments();
+
+        if (enchantments.length === 0) return player.notify('enchant:NO_ITEM_SELECTED');
+
+        let tier = parseInt(shardSlot.key.split('shardt')[1]),
+            chance = Formulas.getEnchantChance(tier);
+
+        player.inventory.remove(shardIndex, 1);
+        if (!chance) player.notify('enchant:FAILED_ENCHANT');
+
+        let enchantment = enchantments[Utils.randomInt(0, enchantments.length - 1)],
+            level = Utils.randomInt(1, tier);
+
+        if (!this.canEnchant(item, enchantment, level)) player.notify('enchant:FAILED_ENCHANT');
+
+        item.setEnchantment(enchantment, level);
+        itemSlot.update(item);
+        player.notify('enchant:SUCCESSFUL_ENCHANT');
+        player.inventory.loadCallback?.();
+        player.save();
+    }
+
+    /**
+     * Generates the authoritative server preview for an essence reroll. Nothing is
+     * consumed until the client explicitly accepts this exact preview.
+     */
+    public previewEssence(player: Player, index = -1, essenceIndex = -1): void {
+        if (index < 0 || essenceIndex < 0 || isNaN(index) || isNaN(essenceIndex)) return;
+
+        const itemSlot = player.inventory.get(index),
+            essenceSlot = player.inventory.get(essenceIndex);
+
+        if (!itemSlot?.key || !essenceSlot?.key) return player.notify('enchant:NO_ITEM_SELECTED');
+        if (!itemSlot.equippable || itemSlot.count !== 1)
+            return player.notify('enchant:CANNOT_ENCHANT');
+        if (!(essenceSlot.key in ESSENCE_GUARANTEES))
+            return player.notify('Este material não é uma Essência válida.');
+
+        const affixes = this.rollEssenceAffixes(essenceSlot.key);
+        const previewId = `${Date.now().toString(36)}-${Utils.randomInt(100000, 999999)}`;
+
+        this.essencePreviews.set(player.username, {
+            id: previewId,
+            itemIndex: index,
+            essenceIndex,
+            itemKey: itemSlot.key,
+            essenceKey: essenceSlot.key,
+            affixes
+        });
+
+        player.send(
+            new EnchantPacket(Opcodes.Enchant.EssencePreview, {
+                index,
+                essenceIndex,
+                previewId,
+                itemName: itemSlot.name,
+                essenceName: ESSENCE_NAMES[essenceSlot.key] || essenceSlot.name,
+                affixes,
+                message: `${affixes.length} atributo(s) rolado(s). O atributo principal da essência é sempre T1.`
+            })
+        );
+    }
+
+    /** Applies exactly the preview that was generated server-side and consumes one essence. */
+    public applyEssence(player: Player, previewId = ''): void {
+        const preview = this.essencePreviews.get(player.username);
+        if (!preview || preview.id !== previewId) return player.notify('Prévia da essência expirou. Role novamente.');
+
+        const itemSlot = player.inventory.get(preview.itemIndex),
+            essenceSlot = player.inventory.get(preview.essenceIndex);
+
+        if (!itemSlot?.key || !essenceSlot?.key || itemSlot.key !== preview.itemKey || essenceSlot.key !== preview.essenceKey) {
+            this.essencePreviews.delete(player.username);
+            return player.notify('O item ou a essência mudou de posição. Role novamente.');
+        }
+
+        const currentItem = player.inventory.getItem(itemSlot);
+        const kept: Enchantments = {};
+
+        for (const [key, enchantment] of Object.entries(currentItem.enchantments))
+            if (enchantment.source !== 'essence') kept[Number(key)] = enchantment;
+
+        for (const affix of preview.affixes) {
+            const definition = AFFIXES.find((entry) => entry.stat === affix.stat);
+            if (!definition) continue;
+            kept[definition.id] = { ...affix };
+        }
+
+        // Recreate the Item with the final enchantment payload so essence stats are
+        // applied immediately, not only after relogging/restarting.
+        const item = new Item(itemSlot.key, -1, -1, false, itemSlot.count, kept);
+        if (!item.exists) return player.notify('Não foi possível reconstruir o item reforjado.');
+
+        // Consume first, then update the item using the authoritative affixes.
+        player.inventory.remove(preview.essenceIndex, 1);
+        itemSlot.update(item);
+        player.inventory.loadCallback?.();
+        this.essencePreviews.delete(player.username);
+
+        // Save immediately so a server restart after crafting does not discard the item.
+        player.save();
+
+        player.send(
+            new EnchantPacket(Opcodes.Enchant.EssenceApply, {
+                index: preview.itemIndex,
+                essenceIndex: preview.essenceIndex,
+                previewId,
+                affixes: preview.affixes,
+                message: 'Reforja aplicada e salva no servidor.'
+            })
+        );
+    }
+
+    public cancelEssence(player: Player, previewId = ''): void {
+        const preview = this.essencePreviews.get(player.username);
+        if (preview && (!previewId || preview.id === previewId)) this.essencePreviews.delete(player.username);
+
+        player.send(
+            new EnchantPacket(Opcodes.Enchant.EssenceCancel, {
+                index: preview?.itemIndex ?? -1,
+                previewId,
+                message: 'Prévia cancelada. Nenhuma essência foi consumida.'
+            })
+        );
+    }
+
+    private rollEssenceAffixes(essenceKey: string): Enchantment[] {
+        // 1–5 attributes. Five is intentionally common during development/testing.
+        const roll = Math.random();
+        const amount = roll < 0.10 ? 1 : roll < 0.28 ? 2 : roll < 0.52 ? 3 : roll < 0.78 ? 4 : 5;
+        const guaranteedStat = ESSENCE_GUARANTEES[essenceKey] || 'strength';
+        const guaranteed = AFFIXES.find((affix) => affix.stat === guaranteedStat)!;
+        const picked: AffixDefinition[] = [guaranteed];
+        const remaining = AFFIXES.filter((affix) => affix.stat !== guaranteedStat);
+
+        while (picked.length < amount && remaining.length) {
+            const index = Utils.randomInt(0, remaining.length - 1);
+            picked.push(remaining.splice(index, 1)[0]);
+        }
+
+        return picked.map((definition, index) => {
+            const tier = index === 0 ? 1 : this.rollTier();
+            const range = definition.tiers[tier];
+            const value = Utils.randomInt(range.min, range.max);
+            const suffix = definition.stat.endsWith('Pct') ? '%' : '';
+
+            return {
+                level: tier,
+                tier,
+                value,
+                stat: definition.stat,
+                label: `+${value}${suffix} ${definition.name}`,
+                source: 'essence'
+            };
+        });
+    }
+
+    /** T1 is intentionally rare for non-guaranteed affixes; T5 is most common. */
+    private rollTier(): number {
+        const roll = Math.random();
+        if (roll < 0.08) return 1;
+        if (roll < 0.23) return 2;
+        if (roll < 0.45) return 3;
+        if (roll < 0.72) return 4;
+        return 5;
+    }
+
+    private canEnchant(item: Item, enchantment: number, level: number): boolean {
+        if (!item.hasEnchantment(enchantment)) return true;
+        return level > item.getEnchantmentLevel(enchantment);
+    }
+}

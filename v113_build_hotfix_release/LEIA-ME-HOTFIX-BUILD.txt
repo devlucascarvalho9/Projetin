@@ -1,0 +1,12 @@
+HOTFIX BUILD V11.3
+
+1. Extraia estes arquivos diretamente na raiz Kaetram-Open-develop.
+2. Execute CORRIGIR-BUILD-V11-3.cmd.
+3. Rode yarn build.
+4. Se o build passar, rode yarn start.
+
+O hotfix altera somente:
+packages/client/src/ui/warrior-skillbar.ts
+
+Ele remove uma propriedade privada 'ticker' que era atribuida mas nunca lida.
+Um backup do arquivo e criado automaticamente com sufixo .antes-hotfix-build-v11-3.

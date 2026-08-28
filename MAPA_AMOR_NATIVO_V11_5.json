@@ -1,0 +1,19 @@
+{
+  "version": "11.5",
+  "mode": "native-v11.1-slot",
+  "spawn": [
+    93,
+    1090
+  ],
+  "origin": [
+    48,
+    1056
+  ],
+  "size": [
+    91,
+    68
+  ],
+  "tilesetFirstGid": 19152,
+  "tilesetLastGid": 25339,
+  "collisionsInside": 0
+}

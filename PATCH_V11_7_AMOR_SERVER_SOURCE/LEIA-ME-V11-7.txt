@@ -1,0 +1,18 @@
+KAETRAM V11.7 — MAPA AMOR / SERVIDOR LENDO SOURCE
+
+CORRECAO PRINCIPAL
+- O mapa Amor ja existia em world.json, mas `yarn start` iniciava packages/server/dist/main.js.
+- Nesse projeto, world.json e importado no bundle do servidor durante o build; o dist antigo continuava com a regiao vazia.
+- Agora o script `start` do servidor usa `tsx --preserve-symlinks ./src/main.ts`, fazendo o servidor ler o world.json atualizado ao iniciar.
+- Mantem o tileset e o mapa Amor da V11.6 no cliente.
+- Mantem as correcoes TypeScript em creator.ts e console.ts.
+
+COMO APLICAR
+1. Feche o jogo e os terminais.
+2. Copie a pasta packages deste patch para a raiz do Kaetram-Open-develop, mesclando e substituindo.
+3. Rode `yarn start` normalmente.
+4. Abra uma aba nova do jogo e use Ctrl+F5.
+5. Digite /amor.
+
+NAO RODE YARN BUILD PARA ESTE TESTE.
+O objetivo desta versao e justamente remover a dependencia do dist do servidor para os dados do mapa.

@@ -1,0 +1,23 @@
+Kaetram V10.5a - ROADMAP 1-7 AUTOCONTIDO
+
+CORRECAO DO PACOTE V10.5 ANTERIOR
+- Nao existe pasta PAYLOAD.
+- Nao existe manifesto externo.
+- Os 47 arquivos do patch estao compactados e embutidos dentro de APLICAR-V10-5A-ROADMAP.cjs.
+- O instalador verifica SHA-256 de cada arquivo antes e depois de gravar.
+- O instalador procura automaticamente a raiz Kaetram-Open-develop mesmo se estes arquivos ficarem em uma subpasta.
+
+COMO APLICAR
+1. Pare yarn start.
+2. Extraia este ZIP dentro de Kaetram-Open-develop.
+3. Execute APLICAR-V10-5A-ROADMAP.cmd.
+4. Execute TESTAR-V10-5A-ROADMAP.cmd e confirme somente [OK].
+5. Rode yarn build.
+6. Se o build terminar sem erro, rode yarn start.
+7. Ctrl+F5 no navegador.
+
+ROLLBACK
+Se precisar desfazer SOMENTE o V10.5a, execute ROLLBACK-V10-5A-ROADMAP.cmd e depois yarn build / yarn start.
+
+IMPORTANTE
+O V10.5 antigo que falhou no preflight nao alterou arquivos. Nao e necessario rodar rollback dele.

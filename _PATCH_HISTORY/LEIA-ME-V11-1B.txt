@@ -1,0 +1,14 @@
+KAETRAM V11.1B — HOTFIX DO INSTALADOR DA CIDADE
+
+CORRECAO: aceita o world.data compacto/truncado gerado pelo Kaetram e completa SOMENTE as celulas vazias implicitas com zero antes de anexar a regiao nova da cidade. Nenhum tile existente e deslocado ou substituido.
+
+BASE: V11.0 CUMULATIVO FINAL.
+A tentativa anterior que mostrou "world.data invalido" falhou no preflight e nao instalou a V11.1.
+
+1. Extraia TODO este ZIP na raiz Kaetram-Open-develop, substituindo os arquivos V11_1_*.cjs se o Windows perguntar.
+2. Execute APLICAR-V11-1B-CIDADE-DEV.cmd.
+3. Execute TESTAR-V11-1B.cmd.
+4. Se tudo [OK], rode yarn build e yarn start.
+5. Ctrl+F5.
+
+Rollback: ROLLBACK-V11-1B.cmd

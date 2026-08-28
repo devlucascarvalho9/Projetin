@@ -1,0 +1,34 @@
+{
+  "version": "11.1",
+  "backupRel": ".v11_1_backup/2026-08-27T17-06-37-210Z",
+  "affected": [
+    "packages/server/src/controllers/commands.ts",
+    "packages/server/src/game/entity/character/player/player.ts",
+    "packages/server/src/game/entity/character/player/skills.ts",
+    "packages/server/src/game/entity/character/player/talents.ts",
+    "packages/client/src/game.ts",
+    "packages/client/src/ui/dev-panel.ts",
+    "packages/client/public/img/tilesets/cidade-inicial-estruturada.png",
+    "packages/client/public/maps/cidade_estruturada/source.json",
+    "COMANDOS-E-CONTEUDO-V11-1.md",
+    "packages/server/data/map/world.json",
+    "packages/client/data/maps/map.json",
+    "CIDADE_ESTRUTURADA_COORDENADAS.json",
+    "V11_1_INSTALADO.json"
+  ],
+  "existed": {
+    "packages/server/src/controllers/commands.ts": true,
+    "packages/server/src/game/entity/character/player/player.ts": true,
+    "packages/server/src/game/entity/character/player/skills.ts": true,
+    "packages/server/src/game/entity/character/player/talents.ts": true,
+    "packages/client/src/game.ts": true,
+    "packages/client/src/ui/dev-panel.ts": false,
+    "packages/client/public/img/tilesets/cidade-inicial-estruturada.png": false,
+    "packages/client/public/maps/cidade_estruturada/source.json": false,
+    "COMANDOS-E-CONTEUDO-V11-1.md": true,
+    "packages/server/data/map/world.json": true,
+    "packages/client/data/maps/map.json": true,
+    "CIDADE_ESTRUTURADA_COORDENADAS.json": false,
+    "V11_1_INSTALADO.json": false
+  }
+}

@@ -1,0 +1,5 @@
+V11.4C corrige apenas os destinos /cidade e /amor.
+/cidade -> 120,794
+/amor -> 886,622
+As duas coordenadas sao pontos ja usados pelo Kaetram nativo e, portanto, validos no runtime.
+O patch limpa a area sob cada arte e reaplica apenas as colisoes proprias.

@@ -1,0 +1,170 @@
+{
+  "name": "PATCH AUDITADO - MAPAS NATIVOS",
+  "base": "JOGO ATUALIZADO.rar",
+  "architecture": "native-world-tiles-no-art-overlays",
+  "clientOrigin": "http://localhost:9010/",
+  "serverPort": 9001,
+  "love": {
+    "origin": [
+      384,
+      1056
+    ],
+    "sizeTiles": [
+      16,
+      12
+    ],
+    "sizePixels": [
+      256,
+      192
+    ],
+    "spawn": [
+      392,
+      1062
+    ],
+    "gidRange": [
+      19152,
+      19343
+    ],
+    "collisions": 0
+  },
+  "cave": {
+    "origin": [
+      480,
+      1056
+    ],
+    "sizeTiles": [
+      80,
+      64
+    ],
+    "sizePixels": [
+      1280,
+      1024
+    ],
+    "spawn": [
+      517,
+      1088
+    ],
+    "gidRange": [
+      19408,
+      24527
+    ],
+    "blockingTiles": 2999
+  },
+  "atlas": {
+    "gidRange": [
+      19152,
+      25339
+    ],
+    "pixels": [
+      1456,
+      1088
+    ]
+  },
+  "validation": [
+    "pixel-exact Love reconstruction",
+    "pixel-exact cave reconstruction",
+    "2999/2999 Tiled blocking positions",
+    "both spawns walkable",
+    "runtime bundle syntax",
+    "commands TS transpile",
+    "PWA cache bypass via port 9010"
+  ],
+  "files": {
+    "INICIAR-MAPAS-AUDITADOS.cmd": {
+      "bytes": 788,
+      "sha256": "f2370a8436c61f1b8144f49284f7e879c8683a3842c97773ebaf4585d8e466c7"
+    },
+    "LEIA-ME-MAPAS-AUDITADOS.txt": {
+      "bytes": 1403,
+      "sha256": "f5069280e4d30f389840363c59cd8879f57c201e54b0bedff1ebcfc1ddcf6cf4"
+    },
+    "VALIDAR-MAPAS-AUDITADOS.cjs": {
+      "bytes": 3451,
+      "sha256": "2a386d74e45533f2b84db3d98f4a8c8a3e2960fd75b560b205b0991e0592575e"
+    },
+    "packages/client/data/maps/map.json": {
+      "bytes": 22833,
+      "sha256": "ad4d887417b06847922759d42d85077672f5ea4c11721392aafc1a3a7301c0c5"
+    },
+    "packages/client/dist/_astro/hoisted.auditnative.v1.js": {
+      "bytes": 711329,
+      "sha256": "053a66e505c915bf199744b9b7dcf879d5493b4f95fcdae23e64c34f013e22db"
+    },
+    "packages/client/dist/_astro/hoisted.auditnative.v1.js.br": {
+      "bytes": 149276,
+      "sha256": "34aea744018e542b624d171d9dcb7d2524c22ed6c73e350aa27ded1b42840469"
+    },
+    "packages/client/dist/_astro/hoisted.auditnative.v1.js.gz": {
+      "bytes": 178411,
+      "sha256": "95a808aff9715848c00669fa5a53d23fe58acffb7c5e3ef195895442e6fb07d9"
+    },
+    "packages/client/dist/_astro/hoisted.f2a29915.js": {
+      "bytes": 36,
+      "sha256": "69d41f77249c209f7abbc56cd3f0c6fb31aa4fff087b6ee57badac2fb02f4802"
+    },
+    "packages/client/dist/_astro/hoisted.f2a29915.js.br": {
+      "bytes": 40,
+      "sha256": "242753733224db460bcd8537a5dfdfa85f6b793d214fab9ebb3cb980edda07ef"
+    },
+    "packages/client/dist/_astro/hoisted.f2a29915.js.gz": {
+      "bytes": 56,
+      "sha256": "778f52be0084926e0c38695423537bb1cee1ab137d0748eb2a02d82bc97c1ad4"
+    },
+    "packages/client/dist/img/tilesets/mapa-amor-nativo.png": {
+      "bytes": 4013805,
+      "sha256": "4b7dab38e4ec3a9feaddd1cae3fce176881ba69ed0a6f8c899ca666705824368"
+    },
+    "packages/client/dist/registerSW.js": {
+      "bytes": 278,
+      "sha256": "6640e48531acc26cc40ef1bf48b7993d4010826c38f10f18e611023fc9e8edac"
+    },
+    "packages/client/dist/registerSW.js.br": {
+      "bytes": 162,
+      "sha256": "c879e361c15e0828bda3371ec411c392fbea1b3f7562eb13248239025db89f96"
+    },
+    "packages/client/dist/registerSW.js.gz": {
+      "bytes": 189,
+      "sha256": "2d6d293fdcdfd50abab9975fde263d2bc4bd46bb2c359171155db559cdcf6495"
+    },
+    "packages/client/dist/sw.js": {
+      "bytes": 271,
+      "sha256": "7f71f30ebeaca8513fb0f4c3f4f3048aeb37d56c2a966636b2bcd349e08921ed"
+    },
+    "packages/client/dist/sw.js.br": {
+      "bytes": 149,
+      "sha256": "f51c0aeaac0533dea24555ec0e3895ffe75bb482fb00ca2b4aee15a2e71a7294"
+    },
+    "packages/client/dist/sw.js.gz": {
+      "bytes": 192,
+      "sha256": "bb0354b7ab7c4dae9960f55fb060ef0b7a062196035aaaddf0bba3b768485ba0"
+    },
+    "packages/client/package.json": {
+      "bytes": 1456,
+      "sha256": "3c9514e4a812f370c17af65095e7687ce586a5c7239c095f46d6ce22dc97a10e"
+    },
+    "packages/client/public/img/tilesets/mapa-amor-nativo.png": {
+      "bytes": 4013805,
+      "sha256": "4b7dab38e4ec3a9feaddd1cae3fce176881ba69ed0a6f8c899ca666705824368"
+    },
+    "packages/client/public/maps/audited-native/cave-80x64-preview.png": {
+      "bytes": 52934,
+      "sha256": "09fd85274d6146e2230128f5a5eb22fb5f5debf09cd620fca58621c54ca6629f"
+    },
+    "packages/client/public/maps/audited-native/love-16x12-preview.png": {
+      "bytes": 142742,
+      "sha256": "68c9103607068167df7460ebcd6ce3ba5b3dc13d825fc3d0f886e2494e04407f"
+    },
+    "packages/server/data/map/world.json": {
+      "bytes": 5046900,
+      "sha256": "600918fb3141fe1c9a7aea6e54e9914e536f2c62462df417f9105a017ed02661"
+    },
+    "packages/server/package.json": {
+      "bytes": 1169,
+      "sha256": "995a79b58e9847ec15eca8f7472aa32c225e7978880e3725c56333b3a7d1437e"
+    },
+    "packages/server/src/controllers/commands.ts": {
+      "bytes": 63035,
+      "sha256": "2e6ed8bfa3555019bdba4cc83d8420fc2b56140c22de358cf12a11b8e774a8c3"
+    }
+  }
+}

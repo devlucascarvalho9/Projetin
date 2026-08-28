@@ -1,0 +1,10 @@
+V11.5 - MAPA DO AMOR NATIVO
+
+- Remove a Cidade Estruturada V11.1 do slot nativo que comprovadamente funciona.
+- Coloca o mapa Carine Love no mesmo slot: X 48..138 / Y 1056..1123.
+- Spawn: 93,1090.
+- O mapa usa 6.188 tiles nativos e ZERO colisoes internas.
+- /amor e /cidade apontam para o mapa Amor.
+- /cidade2 e /cidadeestruturada viraram aliases do mesmo mapa; a cidade V11.1 nao fica mais acessivel.
+- O service worker limpa caches antigos para evitar carregar o bundle velho.
+- Nao precisa rodar yarn build para este patch.
